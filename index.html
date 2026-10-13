@@ -29,30 +29,8 @@ a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}.topbar{border-bottom:1p
 </main>
 <div class="contact-strip">Call / WhatsApp Aura Event Co.: <a href="tel:+918882904447">+91 88829 04447</a> · <a href="https://wa.me/918882904447?text=Hello%20Aura%20Event%20Co.%2C%20I%20would%20like%20to%20enquire%20about%20an%20event." target="_blank" rel="noopener">Message us on WhatsApp</a></div><a class="float-wa" href="https://wa.me/918882904447?text=Hello%20Aura%20Event%20Co.%2C%20I%20would%20like%20to%20enquire%20about%20an%20event." target="_blank" rel="noopener" aria-label="Chat with Aura Event Co. on WhatsApp">WhatsApp Us</a><footer><div class="wrap"><strong>AURA EVENT CO.</strong> · Every Moment. Beautifully Managed.<br>Dhanbad, Jharkhand · Weddings · Celebrations · Corporate · Experiences<br><span>Online launch version — WhatsApp contact and Google Form enquiry collection are configured.</span></div></footer>
 <script>
-/* SETUP: Replace the empty value below with the business WhatsApp number in international format without + or spaces, e.g. 91XXXXXXXXXX. */
-const BUSINESS_WHATSAPP = "918882904447";
-document.getElementById('enquiryForm').addEventListener('submit', function(e){
- e.preventDefault();
- const f = new FormData(e.target);
- const lines = [
-  "Hello Aura Event Co., I would like to enquire about an event.",
-  "Name: "+(f.get('name')||""),
-  "Phone: "+(f.get('phone')||""),
-  "Event type: "+(f.get('type')||""),
-  "Event date: "+(f.get('date')||"Not decided"),
-  "Guests: "+(f.get('guests')||"Not decided"),
-  "Budget: "+(f.get('budget')||"Not decided"),
-  "Location: "+(f.get('location')||"Not decided"),
-  "Requirements: "+(f.get('details')||"Not specified")
- ];
- const msg = encodeURIComponent(lines.join("\n"));
- if(BUSINESS_WHATSAPP.startsWith("REPLACE")){
-   const status=document.getElementById('formStatus');
-   status.textContent="Demo mode: copy the enquiry details below, or add your business WhatsApp number in the HTML setup line before publishing.";
-   const pre=document.createElement('textarea'); pre.value=decodeURIComponent(msg); pre.readOnly=true; pre.style.marginTop="10px"; pre.style.minHeight="180px"; pre.setAttribute("aria-label","Enquiry message to copy"); e.target.appendChild(pre); pre.focus(); pre.select();
- } else {
-   window.open("https://wa.me/"+BUSINESS_WHATSAPP+"?text="+msg,"_blank","noopener");
- }
-});
+/* The enquiry form is the embedded Google Form above.
+   Form submissions go to Google Forms and its linked Google Sheet.
+   WhatsApp remains a separate contact button only. */
 </script>
 </body></html>
